@@ -43,7 +43,7 @@ class MailGunAPI(object):
                        "bcc": message.bcc,
                        'text': message.body,
                        'html': message.html}
-        mesage_data = {k: v for k, v in mesage_data.items() if v is not None}
+        mesage_data = {k: v for k, v in list(mesage_data.items()) if v is not None}
 
         files = [(a.disposition, (a.filename, a.data))
                  for a in message.attachments]

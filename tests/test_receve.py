@@ -4,7 +4,7 @@ Created on Fri Apr 21 14:05:26 2017
 
 @author: richard
 """
-from __future__ import print_function
+
 import unittest
 import time
 from flask_mailgun.utils import MailGunException

@@ -86,7 +86,7 @@ class MailGun(object):
         return func
 
     def get_attachments(self, request):
-        files = request.files.values()
+        files = list(request.files.values())
         attachments = [att for att in files if self._is_file_allowed(att.filename)]
         return attachments
 
@@ -138,4 +138,4 @@ class MailGun(object):
                 "receiver": email.get("recipient"),
                 "timestamp": email.get("timestamp"),
                 "number_of_attachments": email.get("attachment-count"),
-                "attachment_names": request.files.keys()}, "Info")
+                "attachment_names": list(request.files.keys())}, "Info")
